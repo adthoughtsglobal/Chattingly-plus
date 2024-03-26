@@ -1,0 +1,36 @@
+--- NOW DEV ---
+
+Title: Direct messages
+>>> status: 60% 
+
+-------- waypoints:
+- UI Direct message entry UI finished
+- UI for direct message launcher finished
+- User data collection and listing finished
+
+-------- to go:
+- UI and search for DM's List [done]
+- DM UI - a private group chat.
+
+
+
+-- TO DO: Smaller tasks --
+- Conformation UI for group switching
+- make celebrate and send invite slash commands work
+- fix admin perks on meml view
+/ Ping button function
+/ fix multi-user rare admin error.
+/ add pfp's to messages.
+
+-- FUTURE FEATURE PLANS: --
+- external emojis
+- custom ping sounds (local)
+- simple encryption on DM's
+- more admin previlages.
+- button for slash commands and emojis
+
+DM PLAN
+1. make dm chats list [done]
+2. make dm chat ui
+3. make dm chats chattable
+4. make dm notifaction on dm chats icon

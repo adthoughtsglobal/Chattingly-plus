@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Chattingly</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+	<noscript>
+		<h1 style="padding: 100px; font-size: 3rem;">Please Turn on JavaScript to continue.</h1>
+	</noscript>
+	<dialog id="overlay" class="animated-dialog">
+		<h1 style="font-family: 'poppins', sans-serif;">Chatting<g style="color: lightblue;">ly</g>
+		</h1>
+		<p>Plus Version</p>
+	</dialog>
+	<div class="contentk">
+		<h1 class="tit">Chattingly</h1>
+		<div style="border-radius: 10px;padding: 10px;color: #d5d5d5;background-color: #727272;">
+			<b>beta reminder</b>
+			<p>Its beta, many features might be unstable.</p>
+		</div>
+	</div>
+
+	<dialog id="setsmd" class="modal">
+		<nav class="nav">
+			<span class="clbtn bbtn material-symbols-outlined " onclick="gid('setsmd').close()">
+				close
+			</span><b>Settings</b>
+		</nav>
+		<span class="inftxt" title="Choose the theme for chattingly's user interface.">Theme</span>
+		<div class="ftsg" onclick="chtheme()">
+			<button class="ftsb">Dark</button>
+			<button class="ftsb nhe">Bright</button>
+		</div>
+		<br>
+		<span class="inftxt" title="Choose the theme for chattingly's user interface.">Choices</span>
+
+		<div schoice>
+			<span>Be an admin</span>
+
+			<div class="checkbox-wrapper-51">
+				<input type="checkbox" id="cbx-51" />
+				<label for="cbx-51" class="toggle">
+					<span>
+						<svg width="10px" height="10px" viewBox="0 0 10 10">
+							<path
+								d="M5,1 L5,1 C2.790861,1 1,2.790861 1,5 L1,5 C1,7.209139 2.790861,9 5,9 L5,9 C7.209139,9 9,7.209139 9,5 L9,5 C9,2.790861 7.209139,1 5,1 L5,9 L5,1 Z">
+							</path>
+						</svg>
+					</span>
+				</label>
+			</div>
+			<p subts>Be able to run admin checks and be an admin in groups.</p>
+		</div>
+		<div schoice>
+			<span>Join groups once created</span>
+			<div class="checkbox-wrapper-51">
+				<input type="checkbox" id="cbx-52" checked />
+				<label for="cbx-52" class="toggle">
+					<span>
+						<svg width="10px" height="10px" viewBox="0 0 10 10">
+							<path
+								d="M5,1 L5,1 C2.790861,1 1,2.790861 1,5 L1,5 C1,7.209139 2.790861,9 5,9 L5,9 C7.209139,9 9,7.209139 9,5 L9,5 C9,2.790861 7.209139,1 5,1 L5,9 L5,1 Z">
+							</path>
+						</svg>
+					</span>
+				</label>
+			</div>
+			<p subts>Reserve admin perms before anyone else by automatically joining the group once created. Helpful for
+				fast usage.</p>
+		</div>
+		<div schoice>
+			<span>Sound Effects</span>
+			<div class="checkbox-wrapper-51">
+				<input type="checkbox" id="cbx-53" checked />
+				<label for="cbx-53" class="toggle">
+					<span>
+						<svg width="10px" height="10px" viewBox="0 0 10 10">
+							<path
+								d="M5,1 L5,1 C2.790861,1 1,2.790861 1,5 L1,5 C1,7.209139 2.790861,9 5,9 L5,9 C7.209139,9 9,7.209139 9,5 L9,5 C9,2.790861 7.209139,1 5,1 L5,9 L5,1 Z">
+							</path>
+						</svg>
+					</span>
+				</label>
+			</div>
+			<p subts>Enable sfx on ping, theme change etc.</p>
+			<audio src="ping.mp3" id="pse" style="display: none;">
+		</div>
+		<div>
+			<div schoice>
+				<b>Chattingly Plus</b>
+				<p subts>A social chat room app by adthoughtsglobal. Under the Chattingly Legal short note.<br>Ping
+					Sound Effect by <a
+						href="https://pixabay.com/users/universfield-28281460/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=125765">Creating
+						Background Music and Effects</a> from <a
+						href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=125765">Pixabay</a>
+				</p>
+
+			</div>
+		</div>
+	</dialog>
+
+	<span class="inftxt">recent groups</span>
+	<div id="groups">
+	</div>
+	<button id="grpvabtn" onclick="drawgrps(true)">View all</button>
+	<dialog id="vagrpse">
+		<span class="seclbtn material-symbols-outlined " onclick="gid('vagrpse').close()">
+			close
+		</span>
+		<input type="text" id="searchInput" placeholder="Search...">
+		<div id="groups2"></div>
+	</dialog>
+	<div class="bmpar">
+		<div class="bmenu">
+			<span class="material-symbols-outlined" onclick="shsets()">
+				settings
+			</span>
+			<span class="material-symbols-outlined" onclick="ngrpms()">
+				add
+			</span>
+			<span class="material-symbols-outlined" onclick="profile()">
+				account_circle
+			</span>
+		</div>
+	</div>
+	<dialog id="mgm">
+		<nav class="nav">
+			<span class="clbtn bbtn material-symbols-outlined " onclick="gid('mgm').close()">
+				close
+			</span><b>Manage Selected Group</b>
+		</nav>
+		<button class="ngrpbtn" style="background-color: #a55959;" onclick="delcgrp()">Delete Group</button>
+		<button class="ngrpbtn" style="background-color: #5c7b99; color: white;"
+			onclick="gid('mgm').close()">Close</button>
+	</dialog>
+
+	<dialog id="prfs">
+		<nav class="nav">
+			<span class="clbtn bbtn material-symbols-outlined " onclick="gid('prfs').close()">
+				close
+			</span><b>Profile</b>
+		</nav>
+		<span class="material-symbols-outlined" id="prfpics" onclick="prfpicse()">
+			psychology_alt
+		</span>
+		<input class="uninp" placeholder="Username" id="un" maxlength="30">
+		<textarea id="ud" maxlength="100">Im a bug.</textarea>
+		<button class="ngrpbtn" onclick="susm()">Save</button>
+	</dialog>
+
+	<dialog id="prfics">
+		<nav class="nav">
+			<span class="clbtn bbtn material-symbols-outlined " onclick="gid('prfics').close()">
+				close
+			</span><b>Select User Icon</b>
+		</nav><br>
+		<p>A User icon declares a user's interests or preferences. You can select one as yours here.</p><br>
+		<span liii class="material-symbols-outlined" id="prfpics" onclick="spfp(this)">
+			movie
+		</span>
+		<span liii class="material-symbols-outlined" id="prfpics" onclick="spfp(this)">
+			book
+		</span>
+		<span liii class="material-symbols-outlined" id="prfpics" onclick="spfp(this)">
+			music_note
+		</span>
+		<span liii class="material-symbols-outlined" id="prfpics" onclick="spfp(this)">
+			globe
+		</span>
+		<span liii class="material-symbols-outlined" id="prfpics" onclick="spfp(this)">
+			brush
+		</span>
+		<span liii class="material-symbols-outlined" id="prfpics" onclick="spfp(this)">
+			camera_alt
+		</span>
+		<span liii class="material-symbols-outlined" id="prfpics" onclick="spfp(this)">
+			sports_soccer
+		</span>
+		<span liii class="material-symbols-outlined" id="prfpics" onclick="spfp(this)">
+			fitness_center
+		</span>
+		<span liii class="material-symbols-outlined" id="prfpics" onclick="spfp(this)">
+			code
+		</span>
+		<span liii class="material-symbols-outlined" id="prfpics" onclick="spfp(this)">
+			language
+		</span>
+		<span liii class="material-symbols-outlined" onclick="spfp(this)" id="prfpics">bolt</span>
+		<span liii class="material-symbols-outlined" onclick="spfp(this)" id="prfpics">deployed_code</span>
+		<span liii class="material-symbols-outlined" onclick="spfp(this)" id="prfpics">support_agent</span>
+		<span liii class="material-symbols-outlined" onclick="spfp(this)" id="prfpics">rocket_launch</span>
+		<span liii class="material-symbols-outlined" onclick="spfp(this)" id="prfpics">eco</span>
+		<span liii class="material-symbols-outlined" onclick="spfp(this)" id="prfpics">pets</span>
+		<span liii class="material-symbols-outlined" onclick="spfp(this)" id="prfpics">diamond</span>
+		<span liii class="material-symbols-outlined" onclick="spfp(this)" id="prfpics">emoji_people</span>
+		<span liii class="material-symbols-outlined" onclick="spfp(this)" id="prfpics">bedtime</span>
+		<span liii class="material-symbols-outlined" onclick="spfp(this)" id="prfpics">heart_broken</span>
+		<span liii class="material-symbols-outlined" onclick="spfp(this)" id="prfpics">hand_bones</span>
+	</dialog>
+
+	<dialog id="ngrpm" class="modal">
+		<nav class="nav">
+			<span class="clbtn bbtn material-symbols-outlined " onclick="gid('ngrpm').close()">
+				close
+			</span><b>Create or Join a Group</b>
+		</nav>
+		<p class="pp">Creating a group can host more formal chat rooms. You cannot rename groups once created.</p>
+		<input id="ngrpinp" placeholder="Enter a group Name..." value=""
+			onkeydown="gid('grpcrbtn').innerHTML = 'Check Availability'">
+		<button class="ngrpbtn" onclick="cngrp()" id="grpcrbtn">Check Availability</button>
+	</dialog>
+
+	<dialog id="gmdv">
+		<nav class="nav">
+			<span class="clbtn bbtn material-symbols-outlined " onclick="gid('gmdv').close()">
+				close
+			</span><b>Users Connected</b>
+		</nav>
+		<div id="memdisp"></div>
+	</dialog>
+
+	<dialog id="wmmd">
+		<nav class="nav">
+			<span class="clbtn bbtn material-symbols-outlined " onclick="gid('grpin').close()">
+				close
+			</span><b>Welcome</b>
+		</nav>
+		<p></p>
+	</dialog>
+
+	<dialog id="grpin" class="modal">
+		<nav class="gg22 nav">
+			<span class="clbtn bbtn material-symbols-outlined " onclick="gid('grpin').close()">
+				close
+			</span><b id="gitxtb">Group Info</b>
+		</nav>
+		<div class="grpincon">
+			<h2 id="gname2">Main</h2>
+			<span id="ginst">Welcome to Main! </span>
+			<input id="inliin" value="https://chattingly-plus.adthoughtsglobal.repl.co/">
+			<div id="ginstmd"></div>
+		</div>
+	</dialog>
+
+	<dialog id="prfmd">
+		<nav class="gg22 nav">
+			<span class="clbtn bbtn material-symbols-outlined " onclick="gid('prfmd').close()">
+				close
+			</span><b id="tbun">Someone</b>
+		</nav>
+		<div class="pfbdcon">
+			<div class="pfbd">
+				<span class="material-symbols-outlined prfpic" id="prfchic">
+					psychology_alt
+				</span>
+			</div>
+		</div>
+
+		<p id="tbud">Something about someone...</p>
+
+		<div class="pndmcon">
+			<button onclick="pingauser()">Ping</button>
+			<button>Direct message</button>
+		</div>
+	</dialog>
+
+	<dialog id="app">
+		<nav class="nav1">
+			<span class="bbtn material-symbols-outlined " onclick="app.close()">
+				arrow_back_ios_new
+			</span>
+			<span class="material-symbols-outlined memlbtn" onclick="dmsopen()" style="
+					margin-left: 2px;
+				">chat_bubble
+			</span>
+			<b id="gname" onclick="adminp()"></b>
+			<span class="material-symbols-outlined memlbtn" onclick="showmems()">group
+
+			</span>
+
+			<span style="float: right;" id="nbsd">Connected</span>
+
+		</nav>
+		<dialog class="modal" id="dmchat">
+			<!--DM CHAT-->
+			<nav class="nav">
+				<span class="bbtn material-symbols-outlined " onclick="gid('dmchat').close()">
+					arrow_back_ios_new
+				</span>
+				<b id="gdmn" onclick="adminp()">bro wait.</b>
+			</nav>
+			<div id="dmchatts">
+				<g></g>
+			</div>
+			<!--DM CHAT-->
+			<div class="messdm">
+				<input id="messagedm" placeholder="Write a message..." onkeyup="kentdm(event)" maxlength="100"
+					autocomplete="off">
+				<button id="senddm" onclick="senddm()"><span class="material-symbols-outlined">
+						send
+					</span></button>
+			</div>
+		</dialog>
+
+		<div id="chatts">
+			<g></g>
+		</div>
+		<button id="floatingBtn" onclick="app.scrollTo(0,document.body.scrollHeight);"><span
+				class="material-symbols-outlined">expand_more
+			</span></button>
+		<div class="mess">
+			<input id="message" placeholder="Write a message..." onkeyup="kent(event)" maxlength="100"
+				autocomplete="off">
+			<button id="send" onclick="sendm()"><span class="material-symbols-outlined">
+					send
+				</span></button>
+		</div>
+		<dialog id="dmpeople" class="modal">
+			<nav class="gg22 nav">
+				<span class="bbtn material-symbols-outlined " onclick="gid('dmpeople').close()">
+					arrow_back_ios_new
+				</span>
+				<span>Direct Messages</span>
+			</nav>
+			<input placeholder="Search.." onkeyup="searchondms()" id="dmsearch">
+			<div id="dmslist">
+			</div>
+		</dialog>
+		<dialog id="welmesd">
+			<div id="welmesv">
+			</div>
+		</dialog>
+		<dialog id="quickact">
+			<qabtcon>
+				<button onclick="gid('ytled').showModal()">Youtube video</button>
+				<button>Celebrate</button>
+				<button>Send invite</button>
+				<button onclick="gid('quickact').close()">Close</button>
+			</qabtcon>
+		</dialog>
+		<dialog id="ytled">
+			<span>Enter Youtube video link: </span>
+			<input placeholder="Enter Full link" id="ytlein">
+			<button onclick="seyem()" desabled>Share</button>
+			<button onclick="gid('ytled').close()" style="background-color: grey;">Close</button>
+		</dialog>
+	</dialog>
+	<div id="snackbar">How is our app?</div>
+	<dialog id="bruhmd" class="modal">
+		<h1>You Awake?</h1>
+		<small>The server kicked you because of inactivity, still you can reconnect. Click reconnect when you are ready:
+		</small>
+		<button class="ngrpbtn" onclick="reconnect()">Reconnect</button>
+	</dialog>
+	<dialog id=""></dialog>
+	<script src="script.js" defer></script>
+</body>
+
+</html>
